@@ -1,11 +1,44 @@
-.formpage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+.App {
+  text-align: center;
+}
+
+nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.player-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.player-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.search-bar {
+  margin: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
