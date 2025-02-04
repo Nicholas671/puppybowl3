@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/2412-FTB-ET-WEB-FT`;
 
 const PlayerForm = ({ fetchAllPlayers, isOpen, onRequestClose }) => {
     const [name, setName] = useState('');
@@ -56,14 +57,8 @@ const PlayerForm = ({ fetchAllPlayers, isOpen, onRequestClose }) => {
                     />
                     <button type="submit">Add New Player</button>
                 </form>
-
-
-
-
-
             </div>
         </div>
-
     ) : null;
 };
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import PlayerCard from './PlayerCard';
+import PlayerCard from './Playercard';
 
-const PlayerList = ({ players, onPlayerClick, onRemove }) => {
+const PlayerList = ({ players, removePlayer }) => {
     return (
         <div className="player-list">
             {players.length ? (
                 players.map((player) => (
-                    <PlayerCard key={player.id} player={player} onPlayerClick={onPlayerClick} onRemove={onRemove} />
+                    <PlayerCard key={player.id} player={player} onRemove={removePlayer} />
                 ))
             ) : (
                 <p>No players found!</p>

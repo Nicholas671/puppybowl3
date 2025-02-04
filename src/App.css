@@ -19,6 +19,15 @@ header {
   color: #3c6b1d;
 }
 
+.header {
+  background-color: #80b25f;
+  color: inherit;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 a {
   color: inherit;
 }
@@ -37,6 +46,7 @@ main {
 }
 
 button {
+  margin: 5px;
   background: linear-gradient(17.5deg, rgb(151, 124, 7), #46cf9d);
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);

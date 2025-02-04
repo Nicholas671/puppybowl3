@@ -12,8 +12,6 @@ const App = () => { // App component
   const [players, setPlayers] = useState([]); // players state
   const [searchQuery, setSearchQuery] = useState(''); // searchQuery state
   const [isPlayerFormOpen, setIsPlayerFormOpen] = useState(false);
-  const [isPlayerDetailsOpen, setIsPlayerDetailsOpen] = useState(false);
-  const [selectedPlayerId, setSelectedPlayerId] = useState(null);
 
   const fetchAllPlayers = async () => {
     try {
@@ -33,16 +31,6 @@ const App = () => { // App component
   const filteredPlayers = players.filter(player =>
     player.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  const handlePlayerDetailsOpen = (playerId) => {
-    setSelectedPlayerId(playerId);
-    setIsPlayerDetailsOpen(true);
-  };
-
-  const handlePlayerDetailsClose = () => {
-    setSelectedPlayerId(null);
-    setIsPlayerDetailsOpen(false);
-  };
 
   const handlePlayerFormOpen = () => {
     setIsPlayerFormOpen(true);
@@ -65,32 +53,27 @@ const App = () => { // App component
   };
 
   return (
-
-
     <div className="App">
-      <header>
+      <header className="header">
         <h1>Puppy Bowl III</h1>
         <nav>
-          <Link to="/">Home</Link>
-          <button onClick={handlePlayerFormOpen}>Add Player</button>
+          <Link to="/" className="button-link">Home</Link>
         </nav>
-
-
-
       </header>
-
+      <br />
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <div>
+      <br />
+      <button onClick={handlePlayerFormOpen}>Add Player</button>
+
+      <div className="main">
         <Routes>
-          <Route path="/" element={<PlayerList players={filteredPlayers} onPlayerClick={handlePlayerDetailsOpen} onRemove={removePlayer} />} />
+          <Route path="/" element={<PlayerList players={filteredPlayers} removePlayer={removePlayer} />} />
+          <Route path="/player/:id" element={<PlayerDetails />} />
         </Routes>
         <PlayerForm isOpen={isPlayerFormOpen} onRequestClose={handlePlayerFormClose} fetchAllPlayers={fetchAllPlayers} />
-        <PlayerDetails isOpen={isPlayerDetailsOpen} onRequestClose={handlePlayerDetailsClose} />
       </div>
-
     </div>
   );
 };
-
 
 export default App;
