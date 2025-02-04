@@ -105,6 +105,13 @@ button:active {
 
 }
 
+.player-details img {
+  width: 100%;
+  height: auto;
+  border-radius: 5%;
+  box-shadow: tomato 2px 2px 2px;
+}
+
 .player-card {
   background-color: bisque;
   border: 3px solid #e8adad;
