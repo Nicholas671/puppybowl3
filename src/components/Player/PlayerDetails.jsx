@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 
 const API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/2412-FTB-ET-WEB-FT`;
 
-const PlayerDetails = () => {
+const PlayerDetails = ({ isOpen, onRequestClose }) => {
     const { id } = useParams();
     const [player, setPlayer] = useState(null);
 
@@ -24,16 +24,18 @@ const PlayerDetails = () => {
 
     if (!player) return <p>Loading...</p>;
 
-    return (
-        <div className="player-details">
-            <h2>{player.name}</h2>
-            <p>Player ID: {player.id}</p>
-            <p>Breed: {player.breed}</p>
-            <p>Team: {player.team ? player.team.name : "Unassigned"}</p>
-            <img src={player.imageUrl} alt={player.name} />
-            <Link to="/">Back to all players</Link>
+    return isOpen ? (
+        <div className="overlay" onClick={onRequestClose}>
+            <div className="player-details">
+                <h2>{player.name}</h2>
+                <p>Player ID: {player.id}</p>
+                <p>Breed: {player.breed}</p>
+                <p>Team: {player.team ? player.team.name : "Unassigned"}</p>
+                <img src={player.imageUrl} alt={player.name} />
+                <button onClick={onRequestClose}>Close</button>
+            </div>
         </div>
-    );
+    ) : null
 };
 
 export default PlayerDetails;

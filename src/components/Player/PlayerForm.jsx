@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PlayerForm = ({ fetchAllPlayers }) => {
+const PlayerForm = ({ fetchAllPlayers, isOpen, onRequestClose }) => {
     const [name, setName] = useState('');
     const [breed, setBreed] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -22,37 +22,49 @@ const PlayerForm = ({ fetchAllPlayers }) => {
             setBreed('');
             setImageUrl('');
             alert(`${newPlayer.name} has been added to the roster!`);
+            onRequestClose();
         } catch (err) {
             console.error("Oops, something went wrong with adding that player!", err);
         }
     };
 
-    return (
-        <form id="new-player-form" onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Puppy Name"
-                required
-            />
-            <input
-                type="text"
-                value={breed}
-                onChange={(e) => setBreed(e.target.value)}
-                placeholder="Puppy Breed"
-                required
-            />
-            <input
-                type="url"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-                placeholder="Puppy Image"
-                required
-            />
-            <button type="submit">Add New Player</button>
-        </form>
-    );
+    return isOpen ? (
+        <div>
+            <div className="overlay" onClick={onRequestClose}></div>
+            <div className="popup">
+                <form id="new-player-form" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Puppy Name"
+                        required
+                    />
+                    <input
+                        type="text"
+                        value={breed}
+                        onChange={(e) => setBreed(e.target.value)}
+                        placeholder="Puppy Breed"
+                        required
+                    />
+                    <input
+                        type="url"
+                        value={imageUrl}
+                        onChange={(e) => setImageUrl(e.target.value)}
+                        placeholder="Puppy Image"
+                        required
+                    />
+                    <button type="submit">Add New Player</button>
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+
+    ) : null;
 };
 
 export default PlayerForm;

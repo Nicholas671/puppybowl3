@@ -1,44 +1,125 @@
-.App {
-  text-align: center;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.player-card {
-  border: 1px solid #ccc;
+header {
+  background-color: #80b25f;
+  color: inherit;
   padding: 10px;
-  margin: 10px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.player-details {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 20px;
-  text-align: left;
+.App {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #bef3b4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: black 1px 0px 2px;
+  color: #3c6b1d;
 }
 
 a {
-  text-decoration: none;
-  color: blue;
+  color: inherit;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #2c3627;
 }
 
-.search-bar {
-  margin: 20px;
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+button {
+  background: linear-gradient(17.5deg, rgb(151, 124, 7), #46cf9d);
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 12px 21px;
+  color: white;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+button:hover {
+  background: linear-gradient(17.5deg, #46cf9d, rgb(151, 124, 7));
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#new-player-form {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+.player-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  padding: 30px;
+
+}
+
+.player-card {
+  background-color: bisque;
+  border: 3px solid #e8adad;
+  box-shadow: 2px 1px 5px;
+  padding: 30px;
   text-align: center;
 }
 
-.search-bar input {
-  width: 200px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.player-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5%;
+  box-shadow: tomato 2px 2px 2px;
+}
+
+
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
